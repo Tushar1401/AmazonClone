@@ -12,21 +12,54 @@ function Home() {
                     alt="backdrop" />
 
                 <div className="home__row">
-                    {/* Product */}
-                    {/* Product */}
-
-                    <Product />
-                    {/* <Product /> */}
+                    <Product
+                        id={1}
+                        title='The Lean Startup: How constant Innovation Creates Radically Succesful Businesses Paperback'
+                        price={1499}
+                        image="https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL.AC_SY400_.jpg"
+                        rating={5}
+                    />
+                    <Product
+                        id={2}
+                        title="Amazon Echo (3rd Gen) 2021 Improved sound, powered by Dolby (Black)"
+                        price={9749}
+                        rating={4}
+                        image="https://images-na.ssl-images-amazon.com/images/I/7128HRanJgL._SL1100_.jpg"
+                    />
                 </div>
 
                 <div className="home__row">
-                    {/* Product */}
-                    {/* Product */}
-                    {/* Product */}
+                    <Product
+                        id={3}
+                        title="Fitbit Charge 3 Fitness Activity Tracker (Rose Gold and Blue Grey) with Offer on Accessory"
+                        rating={3}
+                        price={13999}
+                        image="https://images-na.ssl-images-amazon.com/images/I/71ojyIZsF8L._SL1500_.jpg"
+                    />
+                    <Product
+                        id={4}
+                        title="Apple iPhone 11 (128GB) - RED"
+                        price={72600}
+                        image="https://images-na.ssl-images-amazon.com/images/I/5103Xi7yQgL._SL1024_.jpg"
+                        rating={4}
+                    />
+                    <Product
+                        id={5}
+                        title="VEGA Pro Touch 1800-2000 Hair Dryer (VHDP-02), Black"
+                        price={1899}
+                        image="https://images-na.ssl-images-amazon.com/images/I/51tAVx2zElL._SL1500_.jpg"
+                        rating={4}
+                    />
                 </div>
 
                 <div className="home__row">
-                    {/* Product */}
+                    <Product
+                        id={6}
+                        title="Samsung 138 cm (55 Inches) 4K Ultra HD Smart QLED TV QA55Q60RAKXXL (Black) (2021 Model)"
+                        price={83399.00}
+                        image="https://images-na.ssl-images-amazon.com/images/I/918kUwIXQoL._SL1500_.jpg"
+                        rating={5}
+                    />
                 </div>
 
             </div>
