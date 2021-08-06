@@ -3,8 +3,11 @@ import "./Header.css";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import { Link } from 'react-router-dom';
+import { useStateValue } from './StateProvider';
 
 function Header() {
+
+    const [{ basket }, dispatch] = useStateValue();
 
     return (
         <div className="header">
@@ -45,7 +48,10 @@ function Header() {
                 <Link to='/checkout'>
                     <div className="header__optionBasket">
                         <ShoppingBasketIcon />
-                        <span className="header__optionLineTwo header__basketCount">0</span>
+                        <span className="header__optionLineTwo header__basketCount">
+                            {basket?.length}
+                            {/* use a ? it is called optional chaning ... if we don't have the correct value or basket becomes undefined due to some error it will not freak out*/}
+                        </span>
                     </div>
                 </Link>
 
