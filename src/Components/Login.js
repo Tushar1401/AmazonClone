@@ -1,8 +1,45 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react'
 import './Login.css';
+import { Link, useHistory } from "react-router-dom";
+import { auth } from '../firebase';
 
 function Login() {
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const history = useHistory();
+
+    const signIn = (event) => {
+        event.preventDefault(); // this will stop the page from refreshing!!!
+        // do the login logic...
+
+        auth
+            .signInWithEmailAndPassword(email, password)
+            .then((auth) => {
+                // logged in, redirect to homepage...
+                // console.log('AUTH', auth);
+                history.push("/");
+            })
+            .catch((e) => alert(e.message));
+    };
+
+    const register = (event) => {
+        event.preventDefault(); // this will stop the page from refreshing!!!will stop the page from refreshing!!!
+        // // do the register logic...
+
+        auth
+            .createUserWithEmailAndPassword(email, password)
+            .then((auth) => {
+                // created a user and logged in, redirect to homepage!!!
+                // history.push("/");
+                // console.log('AUTH', auth);
+                if (auth) {
+                    history.push("/");
+                }
+            })
+            .catch((e) => alert(e.message));
+    };
+
     return (
         <div className="login">
 
@@ -21,16 +58,18 @@ function Login() {
                 <form>
                     <h5>E-mail</h5>
                     <input
-                        // value=""
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
                         type="email"
                     />
                     <h5>Password</h5>
                     <input
-                        // value=""
+                        value={password}
+                        onChange={e => setPassword(e.target.value)}
                         type="password"
                     />
                     <button
-                        // onClick=""
+                        onClick={signIn}
                         type="submit"
                         className="login__signInButton"
                     >
@@ -43,7 +82,7 @@ function Login() {
                 </p>
 
                 <button
-                    // onClick=""
+                    onClick={register}
                     className="login__registerButton"
                 >
                     Create your Amazon Account

@@ -30,7 +30,7 @@ const reducer = (state, action) => {
             const index = state.basket.findIndex(
                 (basketItem) => basketItem.id === action.id
             );
-            
+
             //   we cloned the basket
             let newBasket = [...state.basket];
 
@@ -46,6 +46,12 @@ const reducer = (state, action) => {
                 ...state,
                 basket: newBasket,
             };
+
+        case 'SET_USER':
+            return {
+                ...state,
+                user: action.user 
+            }
 
         default:
             return state;
