@@ -1,7 +1,8 @@
 import React from 'react'
 import "./Header.css";
 import SearchIcon from "@material-ui/icons/Search";
-import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
+// import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { Link } from 'react-router-dom';
 import { useStateValue } from './StateProvider';
 import { auth } from '../firebase'
@@ -40,7 +41,7 @@ function Header() {
 
                 <Link to={!user && '/login'}>
                     <div onClick={handleAuthentication} className="header__option">
-                        <span className="header__optionLineOne">Hello Guest</span>
+                        <span className="header__optionLineOne">Hello, {user ? user.email.substring(0,8) : 'Guest'}</span>
                         <span className="header__optionLineTwo">{user ? 'Sign Out' : 'Sign In'}</span>
                     </div>
                 </Link>
@@ -57,7 +58,7 @@ function Header() {
 
                 <Link to='/checkout'>
                     <div className="header__optionBasket">
-                        <ShoppingBasketIcon />
+                        <ShoppingCartIcon />
                         <span className="header__optionLineTwo header__basketCount">
                             {basket?.length}
                             {/* use a ? it is called optional chaning ... if we don't have the correct value or basket becomes undefined due to some error it will not freak out*/}

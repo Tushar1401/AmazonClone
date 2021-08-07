@@ -68,3 +68,13 @@
     margin-left: 10px;
     margin-right: 10px;
 }
+
+.header__option:hover{
+    cursor: pointer;
+    color: #ffc32c;
+}
+
+.header__optionBasket:hover{
+    cursor: pointer;
+    color: #ffc32c; 
+}

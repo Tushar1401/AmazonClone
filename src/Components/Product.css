@@ -11,6 +11,12 @@
   background-color: white;
   z-index: 1;
   /* border: 2px solid red;  */
+  transition: all 0.3s ease-in-out;
+}
+
+.product:hover{
+  box-shadow: 3px 3px 15px rgb(124, 124, 124);
+  transform: scale(1.02);
 }
 
 .product__info {
@@ -40,4 +46,11 @@
   margin-top: 10px;
   border-color: #a88734 #9c7e31 #846a29;
   color: #111;
+  transition: all 0.3s ease-in-out;
+}
+
+.product > button:hover{
+  cursor: pointer;
+  transform: scale(1.15);
+  background: #ffb908;
 }

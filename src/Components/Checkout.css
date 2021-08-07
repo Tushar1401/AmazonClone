@@ -18,3 +18,8 @@
     padding: 10px;
     border-bottom: 1px solid lightgray;
 }
+
+h3{
+    /* border: 2px solid red; */
+    margin-left: 10px;
+}
