@@ -45,7 +45,7 @@ function Payment() {
     const handleSubmit = async (event) => {
         // do all the fancy stripe stuff...
         event.preventDefault();
-        setProcessing(true);  
+        setProcessing(true);
 
         const payload = await stripe.confirmCardPayment(clientSecret, {
             payment_method: {
@@ -53,24 +53,26 @@ function Payment() {
             }
         }).then(({ paymentIntent }) => {
             // paymentIntent = payment confirmation
-            // db
-            //     .collection('users')
-            //     .doc(user?.uid)
-            //     .collection('orders')
-            //     .doc(paymentIntent.id)
-            //     .set({
-            //         basket: basket,
-            //         amount: paymentIntent.amount,
-            //         created: paymentIntent.created
-            //     })
+
+            // using noSql database
+            db
+                .collection('users')
+                .doc(user?.uid)
+                .collection('orders')
+                .doc(paymentIntent.id)
+                .set({
+                    basket: basket,
+                    amount: paymentIntent.amount,
+                    created: paymentIntent.created
+                })
 
             setSucceeded(true);
             setError(null)
             setProcessing(false)
 
-            // dispatch({
-            //     type: 'EMPTY_BASKET'
-            // })
+            dispatch({
+                type: 'EMPTY_BASKET'
+            })
 
             history.replace('/orders')
         })

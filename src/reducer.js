@@ -11,17 +11,20 @@ const reducer = (state, action) => {
     // console.log(action);
     // console.log(state.basket.length);
     switch (action.type) {
-        // case "SET_USER":
-        //   return {
-        //     ...state,
-        //     user: action.user,
-        //   }
+        
         case 'ADD_TO_BASKET':
             // Logic for adding item to basket
             return {
                 ...state,
                 basket: [...state.basket, action.item],
             };
+
+        case 'EMPTY_BASKET':
+            return {
+                ...state,
+                basket: []
+            }
+
 
         case 'REMOVE_FROM_BASKET':
             //   Logic for removing item from basket
@@ -50,7 +53,7 @@ const reducer = (state, action) => {
         case 'SET_USER':
             return {
                 ...state,
-                user: action.user 
+                user: action.user
             }
 
         default:
